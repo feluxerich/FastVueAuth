@@ -28,7 +28,7 @@ def create_app():
     app.include_router(user_router, prefix=f"{settings.API_ROUTE}/user")
     app.include_router(auth_router, prefix=f"{settings.API_ROUTE}/auth")
 
-    @app.get("/")
+    @app.get("/", name='Index, redirects to openapi docs')
     async def root():
         return RedirectResponse(url='/docs')
 
